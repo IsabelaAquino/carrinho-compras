@@ -56,10 +56,10 @@ const Home = (): JSX.Element => {
       )
   }
 
-  // function formatPrice(ProductFormatted: {price: number}){
-  //   let priceFormatted = price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-  //   return priceFormatted;
-  // }
+  function formatPrice(price: number): string{
+    let priceFormatted = price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    return priceFormatted;
+  }
 
   function handleAddProduct(id: number) {
     addProduct(id)
@@ -72,7 +72,7 @@ const Home = (): JSX.Element => {
         <li key={product.id}>
           <img src={product.image} alt={product.title} />
           <strong className='descricao'>{ product.title }</strong>
-          <span>{ product.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }</span>
+          <span>{ formatPrice(product.price) }</span>
           <button
             type="button"
             data-testid="add-product-button"
